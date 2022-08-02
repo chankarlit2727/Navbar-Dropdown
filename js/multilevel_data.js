@@ -41,12 +41,39 @@ var items = [{
 ]
 
 // Event functions:
-function onViewGuiClicked() {}
-function onDownloadServerCertificateClicked() {}
-function onConnectToScreenClicked() {}
-function onPlaybackModeStartClicked() {}
-function onPlaybackModePauseClicked() {}
-function onLoopModePlayOnceClicked() {}
-function onLoopModePlayLoopClicked() {}
-function onLoopModePlayThenRewindClicked() {}
-function onLoopModePlayThenEjectClicked() {}
+function onViewGuiClicked() {
+    document.getElementById("ViewGui");
+    console.log("View Gui Clicked");
+}
+function onDownloadServerCertificateClicked() {
+    document.getElementById("DownloadServer");
+    console.log("Download Server Certificate Clicked");
+}
+function onConnectToScreenClicked() {
+    document.getElementById("ConnectScreen");
+    console.log("Connect Screen Clicked");
+}
+function onPlaybackModeStartClicked() {
+    document.getElementById("PlaybackStart");
+    console.log("Playback Start Clicked");
+}
+function onPlaybackModePauseClicked() {
+    document.getElementById("PlaybackPause");
+    console.log("Playback Pause Clicked");
+}
+function onLoopModePlayOnceClicked() {
+    document.getElementById("LoopPlayOnce");
+    console.log("Loop Play Once Clicked");
+}
+function onLoopModePlayLoopClicked() {
+    document.getElementById("LoopPlayLoop");
+    console.log("Loop Play Loop Clicked");
+}
+function onLoopModePlayThenRewindClicked() {
+    document.getElementById("LoopPlayRewind");
+    console.log("Loop Play Then Rewind Clicked");
+}
+function onLoopModePlayThenEjectClicked() {
+    document.getElementById("LoopPlayEject");
+    console.log("Loop Play Then Eject Clicked");
+}

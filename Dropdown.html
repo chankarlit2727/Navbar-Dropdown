@@ -142,22 +142,22 @@
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown">   <i class="fa-solid fa-ellipsis-vertical"></i></a>
 				<ul class="dropdown-menu">
-				  <li><a class="dropdown-item" href="#" data-bind="text: dropdown()[selectedIndex()].name"></a></li>
-				  <li><a class="dropdown-item" href="#" data-bind="text: dropdown()[selectedIndex()+1].name"></a>
+				  <li><a class="dropdown-item" href="#" id="ViewGui" onclick="onViewGuiClicked()" data-bind="text: name1"></a></li>
+				  <li><a class="dropdown-item" href="#" id="DownloadServer" onclick="onDownloadServerCertificateClicked()" data-bind="text: name2"></a>
 				  </li>
-				  <li><a class="dropdown-item" href="#" data-bind="text: dropdown()[selectedIndex()+2].name"></a></li>
-					<li><a class="dropdown-item" id="playbackarrow" href="#"data-bind="text: dropdown()[selectedIndex()+3].name, style:{borderTop: '1px solid white', borderBottom: '1px solid white'}"></a>
+				  <li><a class="dropdown-item" href="#" id="ConnectScreen" onclick="onConnectToScreenClicked()" data-bind="text: name3"></a></li>
+					<li><a class="dropdown-item" id="playbackarrow" href="#"data-bind="text: name4, style:{borderTop: '1px solid white', borderBottom: '1px solid white'}"></a>
 						<ul class="submenu dropdown-menu">
-							<li><a class="dropdown-item" href="#" data-bind="text: dropdown()[selectedIndex()+3].children[0].name">Submenu item 1</a></li>
-							<li><a class="dropdown-item" href="#" data-bind="text: dropdown()[selectedIndex()+3].children[1].name">Submenu item 2</a></li>
+							<li><a class="dropdown-item" id="PlaybackStart" onclick="onPlaybackModeStartClicked()" href="#" data-bind="text: playback_children1">Submenu item 1</a></li>
+							<li><a class="dropdown-item" id="PlaybackPause" onclick="onPlaybackModePauseClicked()" href="#" data-bind="text: playback_children2">Submenu item 2</a></li>
 					 	</ul>
 					</li>
-					<li><a class="dropdown-item" id="loopbackarrow" href="#"data-bind="text: dropdown()[selectedIndex()+4].name"></a>
+					<li><a class="dropdown-item" id="loopbackarrow" href="#"data-bind="text: name5"></a>
 						<ul class="submenu dropdown-menu">
-							<li><a class="dropdown-item" href="#" data-bind="text: dropdown()[selectedIndex()+4].children[0].name">Submenu item 1</a></li>
-							<li><a class="dropdown-item" href="#" data-bind="text: dropdown()[selectedIndex()+4].children[1].name">Submenu item 2</a></li>
-							<li><a class="dropdown-item" href="#" data-bind="text: dropdown()[selectedIndex()+4].children[2].name">Submenu item 2</a></li>
-							<li><a class="dropdown-item" href="#" data-bind="text: dropdown()[selectedIndex()+4].children[3].name">Submenu item 2</a></li>
+							<li><a class="dropdown-item" id="LoopPlayOnce" onclick="onLoopModePlayOnceClicked()" href="#" data-bind="text: loop_children1">Submenu item 1</a></li>
+							<li><a class="dropdown-item" id="LoopPlayLoop" onclick="onLoopModePlayLoopClicked()" href="#" data-bind="text: loop_children2">Submenu item 2</a></li>
+							<li><a class="dropdown-item" id="LoopPlayRewind" onclick="onLoopModePlayThenRewindClicked()" href="#" data-bind="text: loop_children3">Submenu item 2</a></li>
+							<li><a class="dropdown-item" id="LoopPlayEject" onclick="onLoopModePlayThenEjectClicked()" href="#" data-bind="text: loop_children4">Submenu item 2</a></li>
 					 	</ul>
 					</li>
 
@@ -175,34 +175,22 @@
 
 
 <script>
-
-    var observable = ko.observable,
-    data = ko.mapping.fromJS(
-	{
-		"name": "",
-		"disabled": true,
-		"hide": false,
-		"className": "",
-		"clicked": "",
-		"children": []
-	});
-
-
+	var data = ko.observableArray([]);
+    data = ko.mapping.fromJS(items);
     ko.components.register('dropdown-detail', {
       viewModel: function(params) {
-		this.name = params.data.name;
-		this.disabled = params.data.disabled;
-		this.hide = params.data.hide;
-		this.classname = params.data.className;
-		this.clicked = params.data.clicked;
-		this.children = params.data.children;
-		this.selectedIndex = ko.observable(0);
-		var first = items[0];
-		var first1 = items[1];
-		var first2 = items[2];
-		var first3 = items[3];
-		var first4 = items[4];
-		this.dropdown = ko.observableArray([first,first1, first2, first3, first4])
+		this.name1 = params.data()[0].name();
+		this.name2 = params.data()[1].name();
+		this.name3 = params.data()[2].name();
+		this.name4 = params.data()[3].name();
+		this.name5 = params.data()[4].name();
+		this.playback_children1 = params.data()[3].children()[0].name;
+		this.playback_children2 = params.data()[3].children()[1].name;
+		this.loop_children1 = params.data()[4].children()[0].name;
+		this.loop_children2 = params.data()[4].children()[1].name;
+		this.loop_children3 = params.data()[4].children()[2].name;
+		this.loop_children4 = params.data()[4].children()[3].name;
+
 
 
 
