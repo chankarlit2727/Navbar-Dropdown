@@ -15,10 +15,20 @@ var items = [{
         "className": "border-top",
         "children": [{
             "name": "start",
-            "clicked": onPlaybackModeStartClicked
+            "clicked": onPlaybackModeStartClicked,
+            "children":[{
+                "name": "Avenger",
+                "clicked": onPlaybackModeStartMovie1Clicked
+            },{
+                "name": "Superman",
+                "clicked": onPlaybackModeStartMovie2Clicked
+            }]
         }, {
             "name": "pause",
             "clicked": onPlaybackModePauseClicked
+        }, {
+            "name": "stop",
+            "clicked": onPlaybackModeStopClicked
         }]
     },
     {
@@ -37,43 +47,57 @@ var items = [{
             "name": "Play then Eject",
             "clicked": onLoopModePlayThenEjectClicked
         }]
+    },
+    {
+        "name": "Testing Mode",
+        "className": "border-top",
+        "children": [{
+            "name": "Play Once",
+            "clicked": onLoopModePlayOnceClicked
+        }, {
+            "name": "Play Loop",
+            "clicked": onLoopModePlayLoopClicked
+        }, {
+            "name": "Play then Eject",
+            "clicked": onLoopModePlayThenEjectClicked
+        }]
     }
 ]
 
 // Event functions:
 function onViewGuiClicked() {
-    document.getElementById("ViewGui");
     console.log("View Gui Clicked");
 }
 function onDownloadServerCertificateClicked() {
-    document.getElementById("DownloadServer");
     console.log("Download Server Certificate Clicked");
 }
 function onConnectToScreenClicked() {
-    document.getElementById("ConnectScreen");
     console.log("Connect Screen Clicked");
 }
 function onPlaybackModeStartClicked() {
-    document.getElementById("PlaybackStart");
     console.log("Playback Start Clicked");
 }
 function onPlaybackModePauseClicked() {
-    document.getElementById("PlaybackPause");
     console.log("Playback Pause Clicked");
 }
+function onPlaybackModeStopClicked() {
+    console.log("Playback Stop Clicked");
+}
+function onPlaybackModeStartMovie1Clicked() {
+    console.log("Avenger Clicked");
+}
+function onPlaybackModeStartMovie2Clicked() {
+    console.log("Superman Clicked");
+}
 function onLoopModePlayOnceClicked() {
-    document.getElementById("LoopPlayOnce");
     console.log("Loop Play Once Clicked");
 }
 function onLoopModePlayLoopClicked() {
-    document.getElementById("LoopPlayLoop");
     console.log("Loop Play Loop Clicked");
 }
 function onLoopModePlayThenRewindClicked() {
-    document.getElementById("LoopPlayRewind");
     console.log("Loop Play Then Rewind Clicked");
 }
 function onLoopModePlayThenEjectClicked() {
-    document.getElementById("LoopPlayEject");
     console.log("Loop Play Then Eject Clicked");
 }
